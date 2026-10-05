@@ -6,19 +6,463 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>DURAVERO</title>
+<title>DURAVERO – Posadzki żywiczne i epoksydowe</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+
+  margin:0;
+
+  background:#111;
+
+  color:#fff;
+
+  font-family:Arial,sans-serif;
+
+}
+
+header{
+
+  padding:45px 20px;
+
+  text-align:center;
+
+  background:linear-gradient(135deg,#111,#242424);
+
+}
+
+h1{
+
+  margin:0;
+
+  font-size:42px;
+
+  letter-spacing:3px;
+
+}
+
+.gold{color:#c9a55c}
+
+.subtitle{
+
+  font-size:21px;
+
+  font-weight:bold;
+
+  margin:12px 0;
+
+}
+
+.location{color:#bbb}
+
+section{
+
+  max-width:760px;
+
+  margin:auto;
+
+  padding:32px 20px;
+
+}
+
+.card{
+
+  background:#1b1b1b;
+
+  border:1px solid #333;
+
+  border-radius:18px;
+
+  padding:24px;
+
+}
+
+h2{margin-top:0}
+
+label{
+
+  display:block;
+
+  margin:17px 0 7px;
+
+  font-weight:bold;
+
+}
+
+input,select{
+
+  width:100%;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  border:1px solid #555;
+
+  background:#101010;
+
+  color:white;
+
+  font-size:16px;
+
+}
+
+.check{
+
+  display:flex;
+
+  gap:10px;
+
+  align-items:center;
+
+  margin-top:16px;
+
+}
+
+.check input{width:auto}
+
+.result{
+
+  margin-top:25px;
+
+  padding:22px;
+
+  background:#0d0d0d;
+
+  border:1px solid #c9a55c;
+
+  border-radius:14px;
+
+}
+
+.price{
+
+  color:#d7b56d;
+
+  font-size:34px;
+
+  font-weight:bold;
+
+  margin:7px 0 15px;
+
+}
+
+.details{
+
+  line-height:1.7;
+
+  color:#ddd;
+
+}
+
+.pro{
+
+  display:none;
+
+  margin-top:12px;
+
+  color:#d7b56d;
+
+  font-weight:bold;
+
+}
+
+button,.button{
+
+  display:block;
+
+  width:100%;
+
+  margin-top:20px;
+
+  padding:16px;
+
+  border:0;
+
+  border-radius:10px;
+
+  background:#c9a55c;
+
+  color:#111;
+
+  font-size:17px;
+
+  font-weight:bold;
+
+  text-align:center;
+
+  text-decoration:none;
+
+}
+
+.note{
+
+  color:#999;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+  margin-top:16px;
+
+}
+
+.phone{
+
+  color:#d7b56d;
+
+  text-decoration:none;
+
+}
+
+</style>
 
 </head>
 
-<body style="background:#111;color:white;font-family:Arial;text-align:center;padding:80px 20px">
+<body>
 
-<h1>DURAVERO</h1>
+<header>
 
-<h2>Posadzki żywiczne i epoksydowe</h2>
+  <h1>DURA<span class="gold">VERO</span></h1>
 
-<p>Mława • całe Mazowieckie</p>
+  <div class="subtitle">POSADZKI ŻYWICZNE I EPOKSYDOWE</div>
+
+  <div class="location">Mława • całe Mazowieckie</div>
+
+</header>
+
+<section>
+
+<div class="card">
+
+<h2>Oblicz orientacyjną cenę</h2>
+
+<label>Powierzchnia (m²)</label>
+
+<input id="area" type="number" min="1" placeholder="np. 50"
+
+       oninput="duraveroCalc()">
+
+<label>Rodzaj posadzki</label>
+
+<select id="system" onchange="duraveroCalc()">
+
+  <option value="epoxy">Epoksydowa standard</option>
+
+  <option value="anti">Antypoślizgowa</option>
+
+  <option value="flake">Dekoracyjna Flake</option>
+
+  <option value="pu">Poliuretanowa</option>
+
+  <option value="industrial">Przemysłowa</option>
+
+</select>
+
+<label>Stan podłoża</label>
+
+<select id="ground" onchange="duraveroCalc()">
+
+  <option value="good">Dobry</option>
+
+  <option value="medium">Średni</option>
+
+  <option value="poor">Słaby</option>
+
+</select>
+
+<label class="check">
+
+<input id="grind" type="checkbox" onchange="duraveroCalc()">
+
+Intensywne szlifowanie
+
+</label>
+
+<label class="check">
+
+<input id="premium" type="checkbox" onchange="duraveroCalc()">
+
+Warstwa premium
+
+</label>
+
+<div class="result">
+
+  <div>Orientacyjna cena:</div>
+
+  <div class="price" id="price">Wpisz powierzchnię</div>
+
+  <div class="details">
+
+    Stawka: <strong id="rate">—</strong><br>
+
+    Szacowany czas realizacji: <strong id="duration">—</strong><br>
+
+    Pełne utwardzenie: <strong id="cure">—</strong>
+
+  </div>
+
+  <div class="pro" id="pro">
+
+    DURAVERO PRO – wycena inwestycyjna
+
+  </div>
+
+</div>
+
+<a class="button" href="tel:+48730339666">
+
+ZADZWOŃ: 730 339 666
+
+</a>
+
+<a class="button" href="tel:+48573198016">
+
+ZADZWOŃ: 573 198 016
+
+</a>
+
+<div class="note">
+
+Kalkulacja ma charakter orientacyjny i nie stanowi oferty handlowej.
+
+Ostateczna wycena po ocenie podłoża.
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function duraveroCalc(){
+
+ var area = Number(document.getElementById("area").value);
+
+ var system = document.getElementById("system").value;
+
+ var ground = document.getElementById("ground").value;
+
+ var grind = document.getElementById("grind").checked;
+
+ var premium = document.getElementById("premium").checked;
+
+ if(!area || area <= 0){
+
+   document.getElementById("price").innerHTML="Wpisz powierzchnię";
+
+   document.getElementById("rate").innerHTML="—";
+
+   document.getElementById("duration").innerHTML="—";
+
+   document.getElementById("cure").innerHTML="—";
+
+   document.getElementById("pro").style.display="none";
+
+   return;
+
+ }
+
+ var prices={
+
+   epoxy:[250,235,215,190,170,150,135,120],
+
+   anti:[280,265,245,220,200,180,165,150],
+
+   flake:[350,330,305,275,250,225,205,185],
+
+   pu:[330,310,285,255,230,205,185,165],
+
+   industrial:[220,210,195,175,155,140,125,110]
+
+ };
+
+ var i=0;
+
+ if(area<=50) i=0;
+
+ else if(area<=100) i=1;
+
+ else if(area<=300) i=2;
+
+ else if(area<=500) i=3;
+
+ else if(area<=1000) i=4;
+
+ else if(area<=2500) i=5;
+
+ else if(area<=5000) i=6;
+
+ else i=7;
+
+ var rate=prices[system][i];
+
+ if(ground==="medium") rate*=1.08;
+
+ if(ground==="poor") rate*=1.18;
+
+ if(grind) rate+=20;
+
+ if(premium) rate+=25;
+
+ rate=Math.round(rate);
+
+ var total=Math.round(area*rate);
+
+ var days;
+
+ if(area<=50) days="2–3 dni";
+
+ else if(area<=100) days="3–4 dni";
+
+ else if(area<=300) days="4–7 dni";
+
+ else if(area<=500) days="5–8 dni";
+
+ else if(area<=1000) days="7–12 dni";
+
+ else if(area<=2500) days="10–18 dni";
+
+ else if(area<=5000) days="15–28 dni";
+
+ else days="22–40 dni";
+
+ var cure="5–7 dni";
+
+ if(system==="pu") cure="3–7 dni";
+
+ document.getElementById("price").innerHTML=
+
+ total.toLocaleString("pl-PL")+" zł";
+
+ document.getElementById("rate").innerHTML=
+
+ rate+" zł/m²";
+
+ document.getElementById("duration").innerHTML=days;
+
+ document.getElementById("cure").innerHTML=cure;
+
+ if(area>300){
+
+   document.getElementById("pro").style.display="block";
+
+ }else{
+
+   document.getElementById("pro").style.display="none";
+
+ }
+
+}
+
+</script>
 
 </body>
 

@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>DURAVERO — Posadzki żywiczne</title>Posadzki żywiczne Mława | DURAVERO </title>
+<title>Posadzki żywiczne Mława i okolice | DURAVERO</title>
+<link rel="canonical" href="https://duravero.pl/">
+<meta property="og:url" content="https://duravero.pl/">
+<meta property="og:locale" content="pl_PL">
 <meta name="description" content="DURAVERO – profesjonalne posadzki żywiczne: epoksydowe, poliuretanowe i dekoracyjne. Mława i okolice do 80 km. Garaże, domy, firmy i obiekty przemysłowe. Bezpłatna wycena.">
 
 <meta name="keywords" content="posadzki żywiczne Mława, posadzki epoksydowe Mława, posadzki żywiczne Ciechanów, posadzki żywiczne Działdowo, posadzki żywiczne Nidzica, posadzki żywiczne Płońsk, posadzki do garażu Mława, posadzka epoksydowa, posadzki przemysłowe, posadzki żywiczne Warszawa">
@@ -128,6 +131,19 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
   }
 
 }
+
+button.goldAction{width:100%;border:0;cursor:pointer;font-family:inherit;font-size:15px}
+button:disabled{opacity:.65;cursor:wait}
+textarea{width:100%;resize:vertical;min-height:100px;font:inherit;padding:11px;border-radius:9px;border:1px solid #35383b;background:#090a0b;color:#fff}
+.wide{grid-column:1/-1}.trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.formMessage{line-height:1.6;margin-top:14px;padding:14px;border-radius:10px;background:#141618}
+.formMessage:empty{display:none}.formMessage[data-state="error"]{border:1px solid #c58570;color:#ffd5c5}
+.formMessage[data-state="success"]{border:1px solid #7b9a69;color:#daf0c9}
+.note a,footer a{color:#e0aa54}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e0aa54;outline-offset:3px}
+.contactBar{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:12px}.contactBar a{color:#e0aa54;padding:12px;font-size:16px}
+.contentSection{padding:30px 0;line-height:1.7}.contentSection h1{font-size:clamp(25px,4vw,38px);margin:0 0 14px}.contentSection p{color:#c8c5bf}
+details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-weight:700;color:#eee}
+footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);font-size:14px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -142,11 +158,11 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
 
   <div style="max-width:1100px;margin:auto;">
 
-    <h2 style="margin:0 0 12px;">Posadzki żywiczne Mława i Mazowieckie</h2>
+    <h1 style="margin:0 0 12px;font-size:clamp(25px,4vw,38px);">Posadzki żywiczne Mława i okolice</h1>
 
     <p style="margin:0;line-height:1.6;color:#c8c8c8;">
 
-    DURAVERO wykonuje profesjonalne posadzki żywiczne w Mławie oraz na terenie całego województwa mazowieckiego.
+    DURAVERO wykonuje posadzki żywiczne w Mławie i okolicach — przede wszystkim w promieniu 60–80 km, m.in. w Ciechanowie, Działdowie, Nidzicy i Płońsku. Realizacje w Warszawie i pozostałej części Mazowsza ustalamy indywidualnie.
 
    
 
@@ -175,20 +191,21 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
 
 </div>
 </section>
+<nav class="contactBar" aria-label="Szybki kontakt"><a href="#pricePanel">Oblicz cenę</a><a href="#bookPanel">Zgłoś termin</a><a href="tel:+48730339666">730 339 666</a><a href="mailto:kontakt@duravero.pl">kontakt@duravero.pl</a></nav>
 <section class="launch" id="actions"><div class="wrap">
 <div class="panel hidden" id="pricePanel">
 <div class="head"><div><div class="eyebrow">DURAVERO • szybka kalkulacja</div><h2>Oblicz orientacyjną cenę</h2></div><a class="panelCloseLink" href="#" aria-label="Zamknij">×</a></div>
 <div class="calcIntro">Podaj podstawowe informacje. Wynik otrzymasz od razu — bez wysyłania formularza.</div>
 <div class="grid calcGrid">
-<div class="field"><label>Powierzchnia m²</label><input id="area" type="number" min="1" value="30" inputmode="decimal"></div>
-<div class="field"><label>Rodzaj posadzki</label><select id="system">
+<div class="field"><label for="area">Powierzchnia m²</label><input id="area" type="number" min="1" max="100000" step="0.01" value="30" inputmode="decimal"></div>
+<div class="field"><label for="system">Rodzaj posadzki</label><select id="system">
 <option value="epoxy">Epoksydowa standard</option>
 <option value="anti">Antypoślizgowa</option>
 <option value="flake">Dekoracyjna Flake</option>
 <option value="pu">Poliuretanowa</option>
 <option value="industrial">Przemysłowa</option>
 </select></div>
-<div class="field"><label>Stan podłoża</label><select id="ground"><option value="good">Dobre</option><option value="medium">Średnie</option><option value="poor">Słabe / wymaga napraw</option></select></div>
+<div class="field"><label for="ground">Stan podłoża</label><select id="ground"><option value="good">Dobre</option><option value="medium">Średnie</option><option value="poor">Słabe / wymaga napraw</option></select></div>
 </div>
 <div class="extras">
 <label class="check"><input id="grind" type="checkbox"> <span><b>Intensywne szlifowanie</b><small>+20 zł/m²</small></span></label>
@@ -202,20 +219,30 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
 <div class="result"><span>Pełne użytkowanie</span><strong id="cure">—</strong></div>
 </div>
 <a class="goldAction" href="#bookPanel">CHCĘ ZAREZERWOWAĆ TERMIN →</a>
-<p class="note">Kalkulacja ma charakter orientacyjny i nie stanowi oferty handlowej. Ostateczna wycena po ocenie podłoża.</p>
+<p class="note">Kalkulacja ma charakter orientacyjny i nie stanowi oferty handlowej. Ostateczna wycena po ocenie podłoża. Terminy wykonania i utwardzania zależą od systemu, temperatury i wilgotności; pełne użytkowanie potwierdzimy dla konkretnej realizacji.</p>
 </div>
 <div class="panel hidden" id="bookPanel">
 <div class="head"><div><div class="eyebrow">DURAVERO • rezerwacja</div><h2>Zgłoś preferowany termin</h2></div><a class="panelCloseLink" href="#" aria-label="Zamknij">×</a></div>
 <div class="calcIntro">Wybierz termin i zostaw dane. Rezerwacja staje się aktywna po potwierdzeniu przez DURAVERO.</div>
+<form id="bookingForm" action="/api/rezerwacja" method="post">
 <div class="grid bookingGrid">
-<div class="field"><label>Preferowana data</label><input id="date" type="date"></div>
-<div class="field"><label>Imię i nazwisko / firma</label><input id="client" autocomplete="name" placeholder="np. Jan Kowalski"></div>
-<div class="field"><label>Telefon</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="np. 500 000 000"></div>
-<div class="field"><label>Miejscowość</label><input id="city" autocomplete="address-level2" placeholder="np. Mława"></div>
-<div class="field"><label>Powierzchnia m²</label><input id="bookArea" type="number" min="1" inputmode="decimal" placeholder="np. 60"></div>
-<div class="field"><label>Rodzaj obiektu</label><select id="object"><option>Garaż</option><option>Dom / mieszkanie</option><option>Lokal usługowy</option><option>Hala / magazyn</option><option>Parking</option><option>Inny obiekt</option></select></div>
+<div class="field"><label for="date">Preferowana data *</label><input id="date" name="date" type="date" required></div>
+<div class="field"><label for="client">Imię i nazwisko / firma *</label><input id="client" name="client" autocomplete="name" minlength="2" maxlength="120" required placeholder="np. Jan Kowalski"></div>
+<div class="field"><label for="phone">Telefon *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required placeholder="np. 500 000 000"></div>
+<div class="field"><label for="city">Miejscowość *</label><input id="city" name="city" autocomplete="address-level2" minlength="2" maxlength="120" required placeholder="np. Mława"></div>
+<div class="field"><label for="bookArea">Powierzchnia m² *</label><input id="bookArea" name="area" type="number" min="1" max="100000" step="0.01" inputmode="decimal" required placeholder="np. 60"></div>
+<div class="field"><label for="object">Rodzaj obiektu *</label><select id="object" name="object"><option>Garaż</option><option>Dom / mieszkanie</option><option>Lokal usługowy</option><option>Hala / magazyn</option><option>Parking</option><option>Inny obiekt</option></select></div>
+<div class="field"><label for="bookSystem">Rodzaj posadzki *</label><select id="bookSystem" name="system"><option>Epoksydowa standard</option><option>Antypoślizgowa</option><option>Dekoracyjna Flake</option><option>Poliuretanowa</option><option>Przemysłowa</option></select></div>
+<div class="field"><label for="email">E-mail (opcjonalnie)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="np. jan@example.pl"></div>
+<div class="field wide"><label for="notes">Dodatkowe informacje (opcjonalnie)</label><textarea id="notes" name="notes" maxlength="2000" placeholder="Opisz podłoże, zakres prac lub zadaj pytanie."></textarea></div>
 </div>
-<div class="bookingStatus"><b>STATUS: DO POTWIERDZENIA</b><span>Skontaktujemy się, aby potwierdzić zakres prac i dostępność terminu.</span></div>
+<div class="trap" aria-hidden="true"><label for="website">Pozostaw puste</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<p class="note">* Pola wymagane. Dane wykorzystamy do obsługi Twojego zapytania. <a href="/polityka-prywatnosci.html" target="_blank" rel="noopener">Informacja o prywatności</a>.</p>
+<button class="goldAction" id="bookingSubmit" type="submit" disabled>WYŚLIJ ZGŁOSZENIE →</button>
+<div id="formMessage" class="formMessage" role="status" aria-live="polite" tabindex="-1"></div>
+<noscript><p>Do wysłania formularza potrzebny jest JavaScript. Zadzwoń: <a href="tel:+48730339666">730 339 666</a> lub napisz na <a href="mailto:kontakt@duravero.pl">kontakt@duravero.pl</a>.</p></noscript>
+</form>
+<div class="bookingStatus"><b>TERMIN WYMAGA POTWIERDZENIA</b><span>Wysłanie zgłoszenia nie rezerwuje terminu. Skontaktujemy się, aby potwierdzić zakres prac i dostępność.</span></div>
 <a class="goldAction" href="tel:+48730339666">ZADZWOŃ: 730 339 666 →</a>
 <p class="note">Możesz też zadzwonić pod 573 198 016. Przy większych inwestycjach ustalimy wizję lokalną i indywidualny harmonogram.</p>
 </div>
@@ -237,7 +264,7 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
  function calc(){
   var a=document.getElementById('area'),sys=document.getElementById('system'),ground=document.getElementById('ground');
   if(!a||!sys||!ground)return;
-  var area=Math.max(1,parseFloat(a.value)||1);
+  var area=Math.min(100000,Math.max(1,parseFloat(a.value)||1));
   var rate=prices[sys.value][band(area)];
   var gm=ground.value==='medium'?1.08:ground.value==='poor'?1.18:1;
   rate=rate*gm;
@@ -255,10 +282,20 @@ input,select{width:100%;font-size:16px;padding:11px;border-radius:9px;border:1px
   var pro=document.getElementById('proFlag');
   if(area>300)pro.className='proFlag';else pro.className='proFlag hidden';
   var ba=document.getElementById('bookArea');if(ba)ba.value=area;
+  var bs=document.getElementById('bookSystem');if(bs)bs.selectedIndex=sys.selectedIndex;
  }
  var ids=['area','system','ground','grind','premium'];
  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el){el.oninput=calc;el.onchange=calc}}
  calc();
 })();
 </script>
+<section class="contentSection wrap" aria-label="Najczęstsze pytania">
+<h2>Najczęstsze pytania</h2>
+<details><summary>Gdzie wykonujecie posadzki?</summary><p>Głównie w Mławie i okolicach do około 60–80 km. Dojazd do dalszych miejscowości, w tym Warszawy, ustalamy indywidualnie.</p></details>
+<details><summary>Czy cena z kalkulatora jest ostateczna?</summary><p>To orientacyjny budżet. Ostateczna wycena zależy od stanu i wilgotności podłoża, wybranego systemu oraz zakresu przygotowania powierzchni.</p></details>
+<details><summary>Czy wysłanie formularza rezerwuje termin?</summary><p>Formularz przesyła zapytanie o preferowany termin. Rezerwację potwierdzamy po kontakcie z klientem i ustaleniu zakresu prac.</p></details>
+<details><summary>Kiedy można użytkować nową posadzkę?</summary><p>Czas utwardzania zależy od zastosowanego systemu i warunków na miejscu. Wskazania kalkulatora są orientacyjne; termin dopuszczenia ruchu i pełnego obciążenia ustalamy dla konkretnej realizacji.</p></details>
+</section>
+<footer><div class="wrap"><strong>DURAVERO — Karol Jurkowski</strong><br>Posadzki żywiczne • Mława i okolice<br><a href="tel:+48730339666">730 339 666</a> · <a href="tel:+48573198016">573 198 016</a><br><a href="mailto:kontakt@duravero.pl">kontakt@duravero.pl</a><br><a href="/polityka-prywatnosci.html">Polityka prywatności</a></div></footer>
+<script src="/booking.js" defer></script>
 </body></html>

@@ -195,7 +195,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 <section class="launch" id="actions"><div class="wrap">
 <div class="panel hidden" id="pricePanel">
 <div class="head"><div><div class="eyebrow">DURAVERO • szybka kalkulacja</div><h2>Oblicz orientacyjną cenę</h2></div><a class="panelCloseLink" href="#" aria-label="Zamknij">×</a></div>
-<div class="calcIntro">Podaj podstawowe informacje. Wynik otrzymasz od razu — bez wysyłania formularza.</div>
+<div class="calcIntro">Podaj podstawowe informacje. Wynik obejmuje materiały i robociznę — podane kwoty są cenami końcowymi, bez doliczania VAT. Standardowe przygotowanie zdrowego podłoża jest w cenie.</div>
 <div class="grid calcGrid">
 <div class="field"><label for="area">Powierzchnia m²</label><input id="area" type="number" min="1" max="100000" step="0.01" value="30" inputmode="decimal"></div>
 <div class="field"><label for="system">Rodzaj posadzki</label><select id="system">
@@ -211,7 +211,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 <label class="check"><input id="grind" type="checkbox"> <span><b>Intensywne szlifowanie</b><small>+20 zł/m²</small></span></label>
 <label class="check"><input id="premium" type="checkbox"> <span><b>Warstwa premium</b><small>+25 zł/m²</small></span></label>
 </div>
-<div class="proFlag hidden" id="proFlag"><b>DURAVERO PRO</b><span>Duża powierzchnia — kalkulacja inwestycyjna.</span></div>
+<div class="proFlag hidden" id="proFlag"><b>DURAVERO PRO</b><span>Powierzchnia powyżej 300 m² — wycena indywidualna.</span></div>
 <div class="results">
 <div class="result mainResult"><span>Orientacyjny budżet</span><strong id="price">—</strong><small id="range">—</small></div>
 <div class="result"><span>Stawka</span><strong id="rate">—</strong></div>
@@ -219,7 +219,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 <div class="result"><span>Pełne użytkowanie</span><strong id="cure">—</strong></div>
 </div>
 <a class="goldAction" href="#bookPanel">CHCĘ ZAREZERWOWAĆ TERMIN →</a>
-<p class="note">Kalkulacja ma charakter orientacyjny i nie stanowi oferty handlowej. Ostateczna wycena po ocenie podłoża. Terminy wykonania i utwardzania zależą od systemu, temperatury i wilgotności; pełne użytkowanie potwierdzimy dla konkretnej realizacji.</p>
+<p class="note">Kalkulacja ma charakter orientacyjny i nie stanowi oferty handlowej. Naprawy pęknięć, wyrównanie, usunięcie starych powłok i zabezpieczenie przed wilgocią wyceniamy osobno. Powierzchnie poniżej 25 m² i powyżej 300 m² wymagają indywidualnej wyceny. Oferta specjalna −10% dotyczy wyłącznie robocizny przy pierwszych 5 potwierdzonych zleceniach; rabat potwierdzamy w indywidualnej wycenie i nie jest uwzględniony w wyniku kalkulatora. Ostateczna cena po ocenie podłoża. Terminy wykonania i utwardzania zależą od systemu, temperatury i wilgotności; pełne użytkowanie potwierdzimy dla konkretnej realizacji.</p>
 </div>
 <div class="panel hidden" id="bookPanel">
 <div class="head"><div><div class="eyebrow">DURAVERO • rezerwacja</div><h2>Zgłoś preferowany termin</h2></div><a class="panelCloseLink" href="#" aria-label="Zamknij">×</a></div>
@@ -250,14 +250,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 
 <script>
 (function(){
- var prices={
-  epoxy:[250,235,215,190,170,150,135,120],
-  anti:[280,265,245,220,200,180,165,150],
-  flake:[350,330,305,275,250,225,205,185],
-  pu:[330,310,285,255,230,205,185,165],
-  industrial:[220,210,195,175,155,140,125,110]
- };
- function band(a){return a<=50?0:a<=100?1:a<=300?2:a<=500?3:a<=1000?4:a<=2500?5:a<=5000?6:7}
+ var prices={epoxy:240,anti:280,flake:290,pu:380,industrial:220};
  function duration(a){
   return a<=50?'2–3 dni':a<=100?'3–4 dni':a<=300?'4–7 dni':a<=500?'5–8 dni':a<=1000?'7–12 dni':a<=2500?'10–18 dni':a<=5000?'15–28 dni':'22–40 dni'
  }
@@ -265,16 +258,15 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
   var a=document.getElementById('area'),sys=document.getElementById('system'),ground=document.getElementById('ground');
   if(!a||!sys||!ground)return;
   var area=Math.min(100000,Math.max(1,parseFloat(a.value)||1));
-  var rate=prices[sys.value][band(area)];
-  var gm=ground.value==='medium'?1.08:ground.value==='poor'?1.18:1;
-  rate=rate*gm;
+  var rate=prices[sys.value];
+  var individual=area<25||area>300||ground.value!=='good';
   if(document.getElementById('grind').checked)rate+=20;
   if(document.getElementById('premium').checked)rate+=25;
   rate=Math.round(rate);
-  var total=rate*area, low=Math.round(total*.95), high=Math.round(total*1.05);
-  document.getElementById('rate').textContent=rate.toLocaleString('pl-PL')+' zł/m²';
-  document.getElementById('price').textContent=total.toLocaleString('pl-PL')+' zł';
-  document.getElementById('range').textContent='Zakres orientacyjny: '+low.toLocaleString('pl-PL')+'–'+high.toLocaleString('pl-PL')+' zł';
+  var total=Math.round(rate*area);
+  document.getElementById('rate').textContent=individual?'Ustalimy po ocenie':rate.toLocaleString('pl-PL')+' zł/m²';
+  document.getElementById('price').textContent=individual?'Wycena indywidualna':total.toLocaleString('pl-PL')+' zł';
+  document.getElementById('range').textContent=individual?'Prześlij metraż i informacje o podłożu — przygotujemy wycenę.':'Materiały + robocizna. Cena orientacyjna, bez doliczania VAT.';
   var dur=duration(area);
   if(ground.value==='poor')dur+=' + 1–2 dni';
   document.getElementById('duration').textContent=dur;

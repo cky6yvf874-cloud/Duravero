@@ -32,7 +32,7 @@
 .hot-price{left:4.1%;top:80.3%;width:20.8%;height:10.5%}
 .hot-book{left:26.8%;top:80.3%;width:23.7%;height:10.5%}
 .hot-p1{left:48.5%;top:1.7%;width:14.2%;height:7.2%}
-.hot-p2{left:65.1%;top:1.7%;width:14.3%;height:7.2%}
+.hot-p2{left:65.1%;top:1.7%;width:14.3%;height:7.2%;display:flex;align-items:center;justify-content:center;background:#151515;border:1px solid #c49a58;border-radius:999px;color:#fff;font-size:clamp(7px,1.1vw,19px);font-weight:700;text-decoration:none}
 .wrap{width:min(1100px,calc(100% - 32px));margin:auto}
 .launch{padding:16px 0 44px}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -144,14 +144,19 @@ textarea{width:100%;resize:vertical;min-height:100px;font:inherit;padding:11px;b
 .contentSection{padding:30px 0;line-height:1.7}.contentSection h1{font-size:clamp(25px,4vw,38px);margin:0 0 14px}.contentSection p{color:#c8c5bf}
 details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-weight:700;color:#eee}
 footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);font-size:14px;line-height:1.7}
+
+.hero .hot-p2{display:flex!important;align-items:center;justify-content:center;background:#151515!important;border:1px solid #c49a58!important;border-radius:999px;color:#fff;font-size:clamp(7px,1.1vw,19px);font-weight:700;text-decoration:none}
+
+.hero .hot-p1,.hero .hot-p2{width:14.2%!important;display:flex!important;align-items:center;justify-content:center;gap:.5vw;background:#151515!important;border:1px solid #c49a58!important;border-radius:999px;color:#fff;font-family:Arial,sans-serif;font-size:clamp(6px,.95vw,17px);font-weight:700;text-decoration:none;white-space:nowrap}
+.hero .hot-p1 svg,.hero .hot-p2 svg{width:1.25vw;height:1.25vw;flex-shrink:0;color:#c49a58}
 </style>
 </head>
 <body>
 <section class="hero" aria-label="DURAVERO — posadzki żywiczne">
 <a class="hot hot-price" href="#pricePanel" aria-label="Oblicz cenę"></a>
 <a class="hot hot-book" href="#bookPanel" aria-label="Zarezerwuj termin"></a>
-<a class="hot hot-p1" href="tel:+48730339666" aria-label="Zadzwoń 730 339 666"></a>
-<a class="hot hot-p2" href="tel:+48573198016" aria-label="Zadzwoń 573 198 016"></a>
+<a class="hot hot-p1" href="tel:+48730339666" aria-label="Zadzwoń 730 339 666"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.91-8.67A2 2 0 0 1 3.26 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.79a2 2 0 0 1-.45 2.11L7.24 8.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.58 2.79.7A2 2 0 0 1 22 16.92z"/></svg><span>730 339 666</span></a>
+<a class="hot hot-p2" href="tel:+48537198016" aria-label="Zadzwoń 537 198 016"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.91-8.67A2 2 0 0 1 3.26 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.79a2 2 0 0 1-.45 2.11L7.24 8.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.58 2.79.7A2 2 0 0 1 22 16.92z"/></svg><span>537 198 016</span></a>
 </section>
 
 <section style="background:#08090a;color:#fff;padding:28px 20px;text-align:center;">
@@ -244,7 +249,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 </form>
 <div class="bookingStatus"><b>TERMIN WYMAGA POTWIERDZENIA</b><span>Wysłanie zgłoszenia nie rezerwuje terminu. Skontaktujemy się, aby potwierdzić zakres prac i dostępność.</span></div>
 <a class="goldAction" href="tel:+48730339666">ZADZWOŃ: 730 339 666 →</a>
-<p class="note">Możesz też zadzwonić pod 573 198 016. Przy większych inwestycjach ustalimy wizję lokalną i indywidualny harmonogram.</p>
+<p class="note">Możesz też zadzwonić pod 537 198 016. Przy większych inwestycjach ustalimy wizję lokalną i indywidualny harmonogram.</p>
 </div>
 </div></section>
 
@@ -288,6 +293,6 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);f
 <details><summary>Czy wysłanie formularza rezerwuje termin?</summary><p>Formularz przesyła zapytanie o preferowany termin. Rezerwację potwierdzamy po kontakcie z klientem i ustaleniu zakresu prac.</p></details>
 <details><summary>Kiedy można użytkować nową posadzkę?</summary><p>Czas utwardzania zależy od zastosowanego systemu i warunków na miejscu. Wskazania kalkulatora są orientacyjne; termin dopuszczenia ruchu i pełnego obciążenia ustalamy dla konkretnej realizacji.</p></details>
 </section>
-<footer><div class="wrap"><strong>DURAVERO — Karol Jurkowski</strong><br>Posadzki żywiczne • Mława i okolice<br><a href="tel:+48730339666">730 339 666</a> · <a href="tel:+48573198016">573 198 016</a><br><a href="mailto:kontakt@duravero.pl">kontakt@duravero.pl</a><br><a href="/polityka-prywatnosci.html">Polityka prywatności</a></div></footer>
+<footer><div class="wrap"><strong>DURAVERO — Karol Jurkowski</strong><br>Posadzki żywiczne • Mława i okolice<br><a href="tel:+48730339666">730 339 666</a> · <a href="tel:+48537198016">537 198 016</a><br><a href="mailto:kontakt@duravero.pl">kontakt@duravero.pl</a><br><a href="/polityka-prywatnosci.html">Polityka prywatności</a></div></footer>
 <script src="/booking.js" defer></script>
 </body></html>
